@@ -1,0 +1,36 @@
+name: Public evaluation request
+description: Suggest a public or synthetic tool-adoption scenario for an eval fixture.
+title: "[Evaluation]: "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: Propose only public or synthetic scenarios. Do not submit customer or employer data.
+  - type: textarea
+    id: workflow
+    attributes:
+      label: Workflow and baseline
+      description: What real workflow could change, and what is the current baseline?
+    validations:
+      required: true
+  - type: textarea
+    id: candidate
+    attributes:
+      label: Candidate
+      description: Identify the public tool, repository, or capability and link its primary source.
+    validations:
+      required: true
+  - type: textarea
+    id: risk
+    attributes:
+      label: Decision risk
+      description: What data, permission, cost, reliability, or license issue should the fixture test?
+    validations:
+      required: true
+  - type: textarea
+    id: expectation
+    attributes:
+      label: Expected decision boundary
+      description: State what a safe response must do or avoid without prescribing invented facts.
+    validations:
+      required: true

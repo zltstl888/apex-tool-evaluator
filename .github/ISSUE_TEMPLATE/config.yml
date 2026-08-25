@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Usage questions and adoption stories
+    url: https://github.com/zltstl888/apex-tool-evaluator/discussions
+    about: Ask how to use the Skill or share a real workflow.
+  - name: Security report
+    url: https://github.com/zltstl888/apex-tool-evaluator/security/advisories/new
+    about: Privately report a vulnerability. Do not include secrets in a public issue.

@@ -1,0 +1,54 @@
+name: Validator report
+description: Report a reproducible linter, test, CI, or package-validation problem.
+title: "[Validator]: "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: Do not paste credentials, private paths, customer data, or unredacted CI logs.
+  - type: dropdown
+    id: surface
+    attributes:
+      label: Validation surface
+      options:
+        - Agent Skills reference validator
+        - Project public-boundary linter
+        - Unit tests
+        - GitHub Actions
+        - Release archive
+    validations:
+      required: true
+  - type: input
+    id: release
+    attributes:
+      label: Release or commit
+      placeholder: v0.1.1 or a commit SHA
+    validations:
+      required: true
+  - type: textarea
+    id: command
+    attributes:
+      label: Command or workflow step
+      description: Provide the exact public command or CI step. Redact local usernames and paths.
+    validations:
+      required: true
+  - type: textarea
+    id: observed
+    attributes:
+      label: Observed result
+      description: Include the smallest reproducible error without secrets or private paths.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Public-data confirmation
+      options:
+        - label: I removed credentials, customer data, private paths, and confidential identifiers.
+          required: true

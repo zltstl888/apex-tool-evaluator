@@ -5,7 +5,7 @@ license: Apache-2.0
 compatibility: Requires access to primary product documentation and, when relevant, repository or package metadata. Run write actions only after explicit authorization.
 metadata:
   author: APEX AI
-  version: "0.1.0"
+  version: "0.1.1"
 ---
 
 # APEX Tool Evaluator
