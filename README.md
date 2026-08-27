@@ -8,6 +8,22 @@ An evidence-led Agent Skill that turns tool hype into one auditable adoption dec
 
 **Evidence before adoption.** Evaluate Agent Skills, MCP servers, APIs, CLIs, SaaS products, browser extensions, repositories, models, and datasets against a real workflow, primary evidence, risk gates, cost, and a bounded test.
 
+## The problem
+
+AI tools are easy to discover and hard to trust.
+
+Every week brings another impressive demo, Agent Skill, MCP server, model, or SaaS product. But a feature list rarely answers the questions that matter before adoption:
+
+- Does it solve a real workflow gap, or duplicate what the team already has?
+- Is the evidence primary and current, or repeated marketing?
+- What data, permissions, license terms, and ongoing costs come with it?
+- Can it be tested safely, and what would make us roll it back?
+- Should it become a main tool, a fallback, a reference, or something we reject?
+
+Teams often discover these answers only after installation, authorization, integration work, or unexpected spend. APEX Tool Evaluator moves that reasoning before adoption and turns it into a decision another person can inspect and challenge.
+
+This is an open-source decision protocol, not a finished list of opinions. If you have a difficult tool-adoption case, an edge case that breaks the framework, or a better way to test a claim, [start a Discussion](https://github.com/zltstl888/apex-tool-evaluator/discussions), [request an evaluation](https://github.com/zltstl888/apex-tool-evaluator/issues/new?template=evaluation-request.yml), or fork the repository and contribute a public or synthetic eval. The goal is to improve the protocol together so more teams can adopt AI tools with less guesswork and less avoidable risk.
+
 ## Quick start
 
 Install the tagged release with the open-source [`skills`](https://github.com/vercel-labs/skills) CLI:
@@ -116,7 +132,9 @@ SECURITY.md                    Vulnerability reporting guidance
 
 ## 中文快速开始
 
-这是一个面向企业 AI 工具治理的通用 Skill。它不会因为工具热门就建议接入，而是先回答：解决什么真实流程、是否重复、证据是否可信、数据和权限是否安全、能否用合成数据小范围验证。
+AI 工具越来越容易被发现，却越来越难被可靠地选择。热门演示和功能清单通常不会回答：它是否解决真实流程、是否重复建设、证据是否可信、会获取哪些数据和权限、长期成本如何，以及失败后能否安全退出。
+
+这是一个面向企业 AI 工具治理的通用 Skill。它把这些问题放到安装和授权之前，不会因为工具热门就建议接入，而是给出可追溯、可质疑、可回滚的采用判断。
 
 ```bash
 npx skills add \
@@ -126,14 +144,17 @@ npx skills add \
 
 适合评估 Agent Skill、MCP Server、API、CLI、SaaS、浏览器扩展、GitHub 仓库、模型和数据集。普通消费品比较不适用。
 
+这不是一份封闭的工具排行榜。欢迎在 [Discussions](https://github.com/zltstl888/apex-tool-evaluator/discussions) 分享真实痛点和采用场景，通过 [Evaluation Request](https://github.com/zltstl888/apex-tool-evaluator/issues/new?template=evaluation-request.yml) 提交公开或合成案例，或者 fork 仓库补充 eval、反例和改进建议。让更多人共同检验和完善这套方法，正是这个开源项目的价值。
+
 公开版本不包含客户资料、本机路径、账号凭证、内部工具库存或生产状态。
 
-## Feedback
+## Help improve the protocol
 
-- Ask usage questions or share an adoption story in [Discussions](https://github.com/zltstl888/apex-tool-evaluator/discussions).
+- Share a hard adoption decision, usage question, counterexample, or improvement idea in [Discussions](https://github.com/zltstl888/apex-tool-evaluator/discussions).
 - Suggest a public or synthetic eval through the [Evaluation Request template](https://github.com/zltstl888/apex-tool-evaluator/issues/new?template=evaluation-request.yml).
 - Report reproducible decision behavior through the [Behavior Report template](https://github.com/zltstl888/apex-tool-evaluator/issues/new?template=behavior-report.yml).
 - Report linter, test, CI, or package-validation problems through the [Validator Report template](https://github.com/zltstl888/apex-tool-evaluator/issues/new?template=validator-report.yml).
+- Fork the repository to add an eval, improve a decision rule, or demonstrate a failure mode; open a pull request when the change is useful beyond one private workflow.
 - Report security problems according to [`SECURITY.md`](SECURITY.md).
 
 ## Development
