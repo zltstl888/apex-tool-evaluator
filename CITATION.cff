@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If this Skill supports your work, please cite the repository or versioned release."
+title: "APEX Tool Evaluator"
+type: software
+authors:
+  - name: "APEX AI"
+    website: "https://github.com/zltstl888"
+version: "0.1.2"
+date-released: 2026-08-29
+license: Apache-2.0
+repository-code: "https://github.com/zltstl888/apex-tool-evaluator"
+url: "https://github.com/zltstl888/apex-tool-evaluator/releases/tag/v0.1.2"
+keywords:
+  - agent-skills
+  - ai-governance
+  - tool-evaluation
+  - mcp
+  - developer-tools

@@ -37,6 +37,13 @@ class PublicSkillTests(unittest.TestCase):
         prompts = "\n".join(item["prompt"] for item in data["evals"])
         self.assertIn("laptop stands", prompts)
 
+    def test_eval_categories_cover_normal_edge_and_negative(self) -> None:
+        data = json.loads((ROOT / "evals/evals.json").read_text(encoding="utf-8"))
+        categories = [item["category"] for item in data["evals"]]
+        self.assertGreaterEqual(categories.count("normal"), 3)
+        self.assertGreaterEqual(categories.count("edge"), 1)
+        self.assertGreaterEqual(categories.count("negative"), 1)
+
     def test_skill_has_no_absolute_home_path(self) -> None:
         text = (ROOT / "SKILL.md").read_text(encoding="utf-8")
         for _, pattern in VALIDATOR.PUBLIC_BOUNDARY_PATTERNS:
@@ -64,6 +71,19 @@ class PublicSkillTests(unittest.TestCase):
         eval_path.write_text(json.dumps(data), encoding="utf-8")
         with self.assertRaisesRegex(ValueError, "Eval IDs must be unique"):
             VALIDATOR.validate_evals(self.fixture_root)
+
+    def test_missing_eval_category_fails(self) -> None:
+        eval_path = self.fixture_root / "evals/evals.json"
+        data = json.loads(eval_path.read_text(encoding="utf-8"))
+        del data["evals"][0]["category"]
+        eval_path.write_text(json.dumps(data), encoding="utf-8")
+        with self.assertRaisesRegex(ValueError, "missing category"):
+            VALIDATOR.validate_evals(self.fixture_root)
+
+    def test_missing_citation_file_fails(self) -> None:
+        (self.fixture_root / "CITATION.cff").unlink()
+        with self.assertRaisesRegex(ValueError, "Missing required files: CITATION.cff"):
+            VALIDATOR.validate_required_files(self.fixture_root)
 
     def test_windows_user_path_fails(self) -> None:
         private_path = "C:" + "\\" + "Users" + "\\" + "example" + "\\" + "notes.txt"

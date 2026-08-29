@@ -30,7 +30,7 @@ Install the tagged release with the open-source [`skills`](https://github.com/ve
 
 ```bash
 npx skills add \
-  https://github.com/zltstl888/apex-tool-evaluator/tree/v0.1.1 \
+  https://github.com/zltstl888/apex-tool-evaluator/tree/v0.1.2 \
   --skill apex-tool-evaluator
 ```
 
@@ -38,12 +38,23 @@ Or clone the same release into a project-local Agent Skills directory:
 
 ```bash
 mkdir -p .agents/skills
-git clone --branch v0.1.1 --depth 1 \
+git clone --branch v0.1.2 --depth 1 \
   https://github.com/zltstl888/apex-tool-evaluator.git \
   .agents/skills/apex-tool-evaluator
 ```
 
 The required entry point is [`SKILL.md`](SKILL.md). The `main` branch is the development channel; stable installations should use a tagged release.
+
+To verify the packaged release asset:
+
+```bash
+gh release download v0.1.2 \
+  --repo zltstl888/apex-tool-evaluator \
+  --pattern 'apex-tool-evaluator-v0.1.2.zip' \
+  --pattern 'SHA256SUMS'
+sha256sum --check SHA256SUMS  # Linux
+# shasum -a 256 -c SHA256SUMS  # macOS
+```
 
 ## What it returns
 
@@ -72,6 +83,8 @@ Authority: no installation, OAuth grant, payment, or production change
 ```
 
 The Skill does not invent missing evidence or turn a score of zero into a factual claim.
+
+For a complete public example backed by dated primary sources and an isolated local smoke test, see [the `skills` CLI evaluation](examples/evidence-backed-evaluation.md). It shows both the adoption case and the reasons the CLI does not replace source review, version pinning, or permission review.
 
 ## Decision path
 
@@ -121,10 +134,15 @@ propose a synthetic-data test. Do not install or authorize anything.
 ```text
 SKILL.md                        Agent instructions
 examples/README.md             Compact behavior examples
+examples/evidence-backed-evaluation.md
+                               Dated public evaluation with runtime evidence
 references/evaluation-form.md  Durable decision template
 evals/evals.json               Normal, edge, and negative fixtures
 scripts/validate_skill.py      Structure and public-boundary linter
 tests/test_validate_skill.py   Validator regression tests
+CITATION.cff                   Machine-readable citation metadata
+CODE_OF_CONDUCT.md             Community participation rules
+SUPPORT.md                     Usage, behavior, and security support routes
 PROVENANCE.md                  Authorship and origin record
 THIRD_PARTY_NOTICES.md         External names and bundled-code boundary
 SECURITY.md                    Vulnerability reporting guidance
@@ -138,7 +156,7 @@ AI 工具越来越容易被发现，却越来越难被可靠地选择。热门�
 
 ```bash
 npx skills add \
-  https://github.com/zltstl888/apex-tool-evaluator/tree/v0.1.1 \
+  https://github.com/zltstl888/apex-tool-evaluator/tree/v0.1.2 \
   --skill apex-tool-evaluator
 ```
 
@@ -156,6 +174,8 @@ npx skills add \
 - Report linter, test, CI, or package-validation problems through the [Validator Report template](https://github.com/zltstl888/apex-tool-evaluator/issues/new?template=validator-report.yml).
 - Fork the repository to add an eval, improve a decision rule, or demonstrate a failure mode; open a pull request when the change is useful beyond one private workflow.
 - Report security problems according to [`SECURITY.md`](SECURITY.md).
+- Use [`SUPPORT.md`](SUPPORT.md) to choose the right public or private support route.
+- Cite or reference the project using [`CITATION.cff`](CITATION.cff).
 
 ## Development
 

@@ -19,14 +19,21 @@ ROOT = Path(__file__).resolve().parents[1]
 REQUIRED = (
     "SKILL.md",
     "README.md",
+    "CITATION.cff",
+    "CODE_OF_CONDUCT.md",
+    "CONTRIBUTING.md",
     "LICENSE",
     "NOTICE",
     "PROVENANCE.md",
     "THIRD_PARTY_NOTICES.md",
     "SECURITY.md",
+    "SUPPORT.md",
+    ".github/PULL_REQUEST_TEMPLATE.md",
+    "examples/evidence-backed-evaluation.md",
     "references/evaluation-form.md",
     "evals/evals.json",
 )
+ALLOWED_EVAL_CATEGORIES = {"normal", "edge", "negative"}
 PUBLIC_BOUNDARY_PATTERNS = (
     ("absolute home path", re.compile(r"/(?:Users|home)/[^/\s]+/")),
     ("Windows user path", re.compile(r"[A-Za-z]:\\Users\\[^\\\s]+(?:\\|\b)")),
@@ -96,6 +103,8 @@ def validate_skill(root: Path = ROOT) -> None:
         fail("Skill compatibility must be at most 500 characters")
     if metadata.get("license") != "Apache-2.0":
         fail("Skill license must be Apache-2.0")
+    if not re.search(r'^\s+version:\s*["\']0\.1\.2["\']\s*$', text, re.MULTILINE):
+        fail("Skill metadata version must be 0.1.2")
     if len(text.splitlines()) >= 500:
         fail("SKILL.md must stay below 500 lines")
 
@@ -111,11 +120,19 @@ def validate_evals(root: Path = ROOT) -> None:
     if len(ids) != len(set(ids)):
         fail("Eval IDs must be unique")
     for item in evals:
-        for field in ("prompt", "expected_output", "files", "expectations"):
+        for field in ("category", "prompt", "expected_output", "files", "expectations"):
             if field not in item:
                 fail(f"Eval {item.get('id')} is missing {field}")
+        if item["category"] not in ALLOWED_EVAL_CATEGORIES:
+            fail(f"Eval {item.get('id')} has an invalid category")
         if not item["expectations"]:
             fail(f"Eval {item.get('id')} needs expectations")
+    counts = {
+        category: sum(item["category"] == category for item in evals)
+        for category in ALLOWED_EVAL_CATEGORIES
+    }
+    if counts["normal"] < 3 or counts["edge"] < 1 or counts["negative"] < 1:
+        fail("Evals must include at least 3 normal, 1 edge, and 1 negative case")
 
 
 def validate_public_boundary(root: Path = ROOT) -> None:

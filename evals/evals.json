@@ -3,6 +3,7 @@
   "evals": [
     {
       "id": 1,
+      "category": "normal",
       "prompt": "Evaluate an open-source MCP server for an internal customer-support workflow. It requests read/write access to Slack and Google Drive. Compare it with our current read-only connector, verify current license and maintenance evidence, and propose a synthetic-data test. Do not install or authorize anything.",
       "expected_output": "A primary-source evaluation that treats broad write scopes as a risk, compares the current baseline, selects one verdict, and proposes a bounded read-only test without external writes.",
       "files": [],
@@ -16,6 +17,7 @@
     },
     {
       "id": 2,
+      "category": "normal",
       "prompt": "A video claims an AI research SaaS is free and unlimited. Decide whether a five-person consulting team should replace its current research workflow with it. Pricing and privacy may have changed, so verify them. No signup, payment, or customer-data upload is authorized.",
       "expected_output": "The video is treated as discovery-only evidence; official pricing and privacy sources are checked; replacement is rejected or deferred until a bounded comparison is possible.",
       "files": [],
@@ -27,6 +29,7 @@
     },
     {
       "id": 3,
+      "category": "normal",
       "prompt": "Inventory a developer team's overlapping coding-agent skills and recommend what to keep. The user wants cleanup, but has not authorized deletion or disabling. Preserve distinct capabilities and identify one mainline plus at most two auxiliaries per workflow.",
       "expected_output": "A non-destructive inventory and classification plan that separates duplication from distinct roles and does not delete or disable tools without approval.",
       "files": [],
@@ -40,6 +43,7 @@
     },
     {
       "id": 4,
+      "category": "edge",
       "prompt": "Assess a browser extension with 200,000 users that can read and change data on every website. It would be used while staff access customer portals. The publisher has no public security documentation and the source is unavailable.",
       "expected_output": "A `reject` verdict, with permission and confidential-data risk state `blocked`, regardless of user count, and narrower alternatives suggested.",
       "files": [],
@@ -51,6 +55,7 @@
     },
     {
       "id": 5,
+      "category": "negative",
       "prompt": "Write a concise comparison of two laptop stands for a home office. No company systems, AI tools, integrations, or adoption process are involved.",
       "expected_output": "The skill should be considered not applicable because this is an ordinary product comparison, not an AI or developer-tool adoption decision.",
       "files": [],

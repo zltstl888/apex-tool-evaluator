@@ -2,6 +2,14 @@
 
 All notable changes are recorded here. This project follows semantic versioning.
 
+## 0.1.2 - 2026-08-29
+
+- Add a dated, evidence-backed public evaluation of the `skills` CLI.
+- Make normal, edge, and negative eval coverage machine-checkable.
+- Add citation, conduct, support, and pull-request community files.
+- Carry the pain-led README and participation paths into a tagged release.
+- Add release checksum guidance without changing the core evaluation contract.
+
 ## 0.1.1 - 2026-08-25
 
 - Add a one-command tagged installation path.
