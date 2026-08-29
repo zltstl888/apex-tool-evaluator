@@ -30,7 +30,7 @@ Install the tagged release with the open-source [`skills`](https://github.com/ve
 
 ```bash
 npx skills add \
-  https://github.com/zltstl888/apex-tool-evaluator/tree/v0.1.2 \
+  https://github.com/zltstl888/apex-tool-evaluator/tree/v0.1.3 \
   --skill apex-tool-evaluator
 ```
 
@@ -38,7 +38,7 @@ Or clone the same release into a project-local Agent Skills directory:
 
 ```bash
 mkdir -p .agents/skills
-git clone --branch v0.1.2 --depth 1 \
+git clone --branch v0.1.3 --depth 1 \
   https://github.com/zltstl888/apex-tool-evaluator.git \
   .agents/skills/apex-tool-evaluator
 ```
@@ -48,9 +48,10 @@ The required entry point is [`SKILL.md`](SKILL.md). The `main` branch is the dev
 To verify the packaged release asset:
 
 ```bash
-gh release download v0.1.2 \
+gh release download v0.1.3 \
   --repo zltstl888/apex-tool-evaluator \
-  --pattern 'apex-tool-evaluator-v0.1.2.zip' \
+  --pattern 'apex-tool-evaluator-v0.1.3.skill' \
+  --pattern 'apex-tool-evaluator-social-preview-v0.1.3.jpg' \
   --pattern 'SHA256SUMS'
 sha256sum --check SHA256SUMS  # Linux
 # shasum -a 256 -c SHA256SUMS  # macOS
@@ -105,6 +106,7 @@ flowchart LR
 - reject the framework when the request is an ordinary consumer comparison.
 
 See [`examples/README.md`](examples/README.md) for three compact examples covering normal, edge, and out-of-scope behavior.
+See [`EVALUATION.md`](EVALUATION.md) for the public evaluation model, including the balanced trigger set and the dated real-tool example.
 
 ## Why it exists
 
@@ -133,11 +135,13 @@ propose a synthetic-data test. Do not install or authorize anything.
 
 ```text
 SKILL.md                        Agent instructions
+EVALUATION.md                   Public behavior and trigger evaluation guide
 examples/README.md             Compact behavior examples
 examples/evidence-backed-evaluation.md
                                Dated public evaluation with runtime evidence
 references/evaluation-form.md  Durable decision template
 evals/evals.json               Normal, edge, and negative fixtures
+evals/trigger-evals.json       10 should-trigger and 10 should-not-trigger prompts
 scripts/validate_skill.py      Structure and public-boundary linter
 tests/test_validate_skill.py   Validator regression tests
 CITATION.cff                   Machine-readable citation metadata
@@ -146,6 +150,7 @@ SUPPORT.md                     Usage, behavior, and security support routes
 PROVENANCE.md                  Authorship and origin record
 THIRD_PARTY_NOTICES.md         External names and bundled-code boundary
 SECURITY.md                    Vulnerability reporting guidance
+SOCIAL_PREVIEW.md              Versioned preview identity and checksum
 ```
 
 ## 中文快速开始
@@ -156,7 +161,7 @@ AI 工具越来越容易被发现，却越来越难被可靠地选择。热门�
 
 ```bash
 npx skills add \
-  https://github.com/zltstl888/apex-tool-evaluator/tree/v0.1.2 \
+  https://github.com/zltstl888/apex-tool-evaluator/tree/v0.1.3 \
   --skill apex-tool-evaluator
 ```
 

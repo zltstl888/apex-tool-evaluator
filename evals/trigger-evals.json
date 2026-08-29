@@ -1,0 +1,82 @@
+[
+  {
+    "query": "We are considering a GitHub-hosted MCP server for our support team. It wants read and write access to Slack and Google Drive, while our current connector is read-only. Check its current license, maintenance, permission scope, and whether a synthetic-data pilot is justified; do not install or authorize it.",
+    "should_trigger": true
+  },
+  {
+    "query": "Our engineering lead wants to replace two existing coding assistants with a new agent CLI from GitHub. Compare the actual workflow coverage, repository health, license, install footprint, and rollback path before we spend a week migrating.",
+    "should_trigger": true
+  },
+  {
+    "query": "Can this open-weights model and its training dataset be used inside a paid customer product? Review the model card, dataset card, licenses, intended-use restrictions, evaluation evidence, and hosting requirements before recommending a test.",
+    "should_trigger": true
+  },
+  {
+    "query": "A browser extension with a large user count says it can summarize any tab, but it requests access to read and change data on every website. Staff would use it in customer portals. Decide whether we should adopt it or choose a narrower option.",
+    "should_trigger": true
+  },
+  {
+    "query": "We saw a demo claiming an AI research SaaS is free and unlimited. Verify current pricing, privacy, retention, export options, and service limits, then tell us whether it should replace our existing research process. No signup or customer upload is approved.",
+    "should_trigger": true
+  },
+  {
+    "query": "Please audit the Agent Skills in this repository for overlap. I need a mainline, auxiliary, fallback, or reference recommendation for each workflow, but you are not authorized to delete, disable, or move anything.",
+    "should_trigger": true
+  },
+  {
+    "query": "Before we standardize on this package-install CLI across projects, evaluate its release cadence, dependency and supply-chain footprint, license, lockfile behavior, global versus project writes, and a safe test using a temporary repository.",
+    "should_trigger": true
+  },
+  {
+    "query": "Should our consulting team use an AI meeting-notes service for calls that may contain confidential client plans? Compare it with our local transcription baseline and verify consent, retention, model-training, deletion, regional, and pricing terms.",
+    "should_trigger": true
+  },
+  {
+    "query": "An agent plugin promises to update tickets, send email, and change cloud resources from one chat. Map its exact write tools, authentication and approval model, audit trail, pricing, and rollback, then design a read-only evaluation before any account connection.",
+    "should_trigger": true
+  },
+  {
+    "query": "We may move a production document-classification workflow from our current API to a newer provider. Evaluate quality evidence, data handling, rate limits, regional availability, SDK maturity, lock-in, cost ceiling, and a representative shadow test.",
+    "should_trigger": true
+  },
+  {
+    "query": "Security has already approved the exact tagged release of the skills CLI. Install that approved tag into this project-local .agents/skills directory and show me the resulting file list; no adoption recommendation is needed.",
+    "should_trigger": false
+  },
+  {
+    "query": "Our existing MCP integration started returning HTTP 401 after yesterday's credential rotation. Diagnose the authentication failure from these redacted logs and tell me which configuration field is stale.",
+    "should_trigger": false
+  },
+  {
+    "query": "I already selected this API and have its official quick-start open. Write a small Python client that sends one request to the sandbox endpoint and parses the response into a dataclass.",
+    "should_trigger": false
+  },
+  {
+    "query": "Review this pull request for SQL injection, authorization bypasses, and unsafe deserialization. The task is to inspect our application code, not to decide whether to adopt a new security tool.",
+    "should_trigger": false
+  },
+  {
+    "query": "Summarize the attached vendor privacy policy into five bullets for our legal meeting. Do not compare products or make an adoption decision; just stay faithful to the supplied document.",
+    "should_trigger": false
+  },
+  {
+    "query": "Compare these two laptop stands for my home office using the product pages I attached. Focus on height range, footprint, material, and return policy; no AI or developer workflow is involved.",
+    "should_trigger": false
+  },
+  {
+    "query": "Create launch copy for our new developer tool: one homepage headline, three benefit bullets, and a short social post. Product positioning is already approved and I am not asking for an adoption assessment.",
+    "should_trigger": false
+  },
+  {
+    "query": "The team already uses this code formatter. Update the repository configuration so imports are sorted consistently, then run the formatter on the changed files and report the diff.",
+    "should_trigger": false
+  },
+  {
+    "query": "Teach me what MCP servers are and show a minimal toy example with one read-only weather tool. This is a learning exercise, not a vendor, license, or deployment decision.",
+    "should_trigger": false
+  },
+  {
+    "query": "Evaluate the clarity of this employee's quarterly self-review and rewrite it to be more specific and concise. Preserve every factual claim and do not discuss software procurement.",
+    "should_trigger": false
+  }
+]
